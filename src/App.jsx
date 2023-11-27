@@ -24,6 +24,7 @@ function App() {
         });
         console.log(res.data);
         socket.emit("send:cookie", {});
+        console.log("emitted");
       } catch (error) {
         console.log(error);
       }
