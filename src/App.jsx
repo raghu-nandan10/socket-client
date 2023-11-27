@@ -9,14 +9,14 @@ import { io } from "socket.io-client";
 function App() {
   const [count, setCount] = useState(0);
   const [socket, setSocket] = useState(
-    io("http://localhost:4000", {
+    io(import.meta.env.VITE_SERVER_URL, {
       withCredentials: true,
     })
   );
   useEffect(() => {
     const fetchCookie = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/get-cookie", {
+        const res = await axios.get(import.meta.env.VITE_SERVER_URL, {
           headers: {
             "Content-Type": "application/json",
           },
