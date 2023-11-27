@@ -16,12 +16,13 @@ function App() {
   useEffect(() => {
     const fetchCookie = async () => {
       try {
-        const res = await axios.get(import.meta.env.VITE_SERVER_URL, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        });
+        console.log(import.meta.env.VITE_SERVER_URL);
+        const res = await axios.get(
+          import.meta.env.VITE_SERVER_URL + "/get-cookie",
+          {
+            withCredentials: true,
+          }
+        );
         console.log(res.data);
         socket.emit("send:cookie", {});
         console.log("emitted");
